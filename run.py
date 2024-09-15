@@ -38,10 +38,13 @@ def upload_file():
     # Return JSON response with table data
     return jsonify({"table_data": table_data})
 
+@app.route('/ping', methods=['GET'])
+def ping():
+    return jsonify({"status": "Server is running"}), 200
+
 @app.route('/')
 def index():
     return render_template('index.html')
-
 
 if __name__ == '__main__':
     app.run(debug=True)
